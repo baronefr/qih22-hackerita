@@ -11,9 +11,9 @@
   QID:
   - 0
   - 0
-  SIT: 778947.0
+  SIT: 345297.0
   TYP: null
-  WCT: '2022-12-01 17:49:26.532842'
+  WCT: '2022-12-01 18:24:16.288063'
 - BAS: null
   INS: epr_EntanglementStage.FINISH
   LOG: entanglement of type 0 created between amsterdam and leiden
@@ -24,7 +24,7 @@
   PTH:
   - amsterdam-leiden
   QGR:
-    8753672297812:
+    8748781684243:
       is_entangled: true
       qubit_ids:
       - - receiver
@@ -35,9 +35,9 @@
   QID:
   - 0
   - 0
-  SIT: 779947.0
+  SIT: 346297.0
   TYP: epr_EntanglementType.CK
-  WCT: '2022-12-01 17:49:26.535277'
+  WCT: '2022-12-01 18:24:16.292040'
 - BAS: null
   INS: epr_EntanglementStage.START
   LOG: start entanglement creation between amsterdam and the-hague
@@ -48,7 +48,7 @@
   PTH:
   - amsterdam-the-hague
   QGR:
-    8753672297812:
+    8748781684243:
       is_entangled: true
       qubit_ids:
       - - receiver
@@ -59,9 +59,9 @@
   QID:
   - 1
   - 0
-  SIT: 780947.0
+  SIT: 347297.0
   TYP: null
-  WCT: '2022-12-01 17:49:26.537098'
+  WCT: '2022-12-01 18:24:16.293795'
 - BAS: null
   INS: epr_EntanglementStage.FINISH
   LOG: entanglement of type 0 created between amsterdam and the-hague
@@ -72,7 +72,7 @@
   PTH:
   - amsterdam-the-hague
   QGR:
-    8753672297812:
+    8748781684243:
       is_entangled: true
       qubit_ids:
       - - receiver
@@ -80,7 +80,7 @@
       - - sender
         - 0
       state: null
-    8753673389556:
+    8748784359156:
       is_entangled: true
       qubit_ids:
       - - receiver2
@@ -91,6 +91,6 @@
   QID:
   - 1
   - 0
-  SIT: 781947.0
+  SIT: 348297.0
   TYP: epr_EntanglementType.CK
-  WCT: '2022-12-01 17:49:26.538632'
+  WCT: '2022-12-01 18:24:16.295483'

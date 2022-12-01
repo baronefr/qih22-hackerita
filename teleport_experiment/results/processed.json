@@ -7,53 +7,11 @@
         "app_receiver": {
           "correction1": "None",
           "correction2": "None",
-          "fidelity": 0.0,
-          "original_state": [
-            [
-              [
-                1.0,
-                0.0
-              ],
-              [
-                0.0,
-                0.0
-              ]
-            ],
-            [
-              [
-                0.0,
-                0.0
-              ],
-              [
-                0.0,
-                0.0
-              ]
-            ]
-          ],
-          "received_state": [
-            [
-              [
-                0.4999999999999999,
-                0.0
-              ],
-              [
-                0.0,
-                0.0
-              ]
-            ],
-            [
-              [
-                0.0,
-                0.0
-              ],
-              [
-                0.4999999999999999,
-                0.0
-              ]
-            ]
-          ]
+          "measurement_outcome": 0
         },
-        "app_receiver2": null,
+        "app_receiver2": {
+          "measurement_outcome": 0
+        },
         "app_sender": {
           "m1": 0,
           "m2": 0
@@ -113,7 +71,7 @@
           "amsterdam-leiden"
         ],
         "groups": {
-          "8753672297812": {
+          "8748781684243": {
             "qubits": [
               {
                 "node": "receiver",
@@ -145,7 +103,7 @@
           "leiden-the-hague"
         ],
         "groups": {
-          "8753672297812": {
+          "8748781684243": {
             "qubits": [
               {
                 "node": "receiver",
@@ -177,7 +135,7 @@
           "leiden-the-hague"
         ],
         "groups": {
-          "8753672297812": {
+          "8748781684243": {
             "qubits": [
               {
                 "node": "receiver",
@@ -191,7 +149,7 @@
             "is_entangled": true,
             "state": null
           },
-          "8753673389556": {
+          "8748784359156": {
             "qubits": [
               {
                 "node": "receiver2",
@@ -228,6 +186,20 @@
           "node": "sender"
         },
         "to": {
+          "node": "receiver"
+        }
+      },
+      {
+        "command": "user-message",
+        "message": "outcome = 0",
+        "from": {
+          "node": "receiver2"
+        }
+      },
+      {
+        "command": "user-message",
+        "message": "outcome = 0",
+        "from": {
           "node": "receiver"
         }
       },

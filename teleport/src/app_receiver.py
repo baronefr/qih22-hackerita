@@ -34,28 +34,16 @@ def main(app_config=None):
             epr.Z()
 
         receiver.flush()
-        # Get the qubit state
-        # NOTE only possible in simulation, not part of actual application
-        dm = get_qubit_state(epr)
-        print(f"`receiver` recieved the teleported state {dm}")
+        outcome = epr.measure()
+        receiver.flush()
 
-        # Reconstruct the original qubit to compare with the received one
-        # NOTE only to check simulation results, normally the Sender does not
-        # need to send the phi and theta values!
-        msg = socket.recv_silent()  # don't log this
-        phi, theta = eval(msg)
+    app_logger.log(f"outcome = {outcome}")
 
-        original = qubit_from(phi, theta)
-        original_dm = to_dm(original)
-        fidelity = get_fidelity(original, dm)
-
-        return {
-            "original_state": original_dm.tolist(),
-            "correction1": "Z" if m1 == 1 else "None",
-            "correction2": "X" if m2 == 1 else "None",
-            "received_state": dm.tolist(),
-            "fidelity": fidelity,
-        }
+    return {
+        "correction1": "Z" if m1 == 1 else "None",
+        "correction2": "X" if m2 == 1 else "None",
+        "measurement_outcome": int(outcome),
+    }
 
 
 if __name__ == "__main__":

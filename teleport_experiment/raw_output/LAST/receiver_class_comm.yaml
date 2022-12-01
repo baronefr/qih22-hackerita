@@ -6,7 +6,7 @@
   REC: receiver
   SEN: sender
   SOD: 0
-  WCT: '2022-12-01 17:49:26.560537'
+  WCT: '2022-12-01 18:24:16.366338'
 - HFL: /home/francesco/Projects/Quantum_Internet_Hackaton/qih22-hackerita/teleport_experiment/input/app_receiver.py
   HLN: 27
   INS: RECV
@@ -16,4 +16,4 @@
   REC: receiver
   SEN: sender
   SOD: 0
-  WCT: '2022-12-01 17:49:26.978722'
+  WCT: '2022-12-01 18:24:16.605675'

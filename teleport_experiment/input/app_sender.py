@@ -54,9 +54,6 @@ def main(app_config=None, phi=0.0, theta=0.0):
 
     socket.send_structured(StructuredMessage("Corrections", (m1, m2)))
 
-    socket.send_silent(str((phi, theta)))
-
-    #------------------------------------ Repeat with receiver 2
     return {"m1": m1, "m2": m2}
 
 

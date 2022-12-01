@@ -20,10 +20,16 @@ def main(app_config=None):
     )
     
     with receiver2:
-        epr = epr_socket.recv()[0]
+        epr2 = epr_socket.recv()[0]
+        receiver2.flush()
+        outcome = epr2.measure()
         receiver2.flush()
 
-    return
+    app_logger.log(f"outcome = {outcome}")
+
+    return {
+        "measurement_outcome": int(outcome)
+    }
 
 
 if __name__ == "__main__":
