@@ -1,12 +1,14 @@
 from netqasm.sdk import EPRSocket
 from netqasm.sdk.external import NetQASMConnection, Socket, get_qubit_state
 from netqasm.sdk.toolbox.sim_states import get_fidelity, qubit_from, to_dm
+from netqasm.logging.output import get_new_app_logger
 
 
 def main(app_config=None):
     log_config = app_config.log_config
-    #app_logger = get_new_app_logger(app_name="receiver", log_config=log_config)
-    #app_logger.log("receiver main() called")
+    app_logger = get_new_app_logger(app_name="receiver", log_config=log_config)
+    app_logger.log("receiver main() called")
+
     # Create a socket to recv classical information
     socket = Socket("receiver", "sender", log_config=log_config)
 

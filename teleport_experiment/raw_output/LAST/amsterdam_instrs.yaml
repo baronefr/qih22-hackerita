@@ -2,46 +2,20 @@
   ANG: null
   HFL: null
   HLN: null
-  INS: init
-  LOG: Doing instruction init with operands ['Q0=0']
-  OPR:
-  - Q0=0
-  OUT: null
-  PRC: 21
-  QGR:
-    8789738900980:
-      is_entangled: false
-      qubit_ids:
-      - - sender
-        - 0
-      state:
-      - - !!python/complex 1.0
-        - !!python/complex 0.0
-      - - !!python/complex 0.0
-        - !!python/complex 0.0
-  QID:
-  - 0
-  SID: 0
-  SIT: 141072.0
-  VID:
-  - 0
-  WCT: '2022-12-01 17:11:32.242417'
-- AID: 0
-  ANG: null
-  HFL: null
-  HLN: null
   INS: cnot
-  LOG: Doing instruction cnot with operands ['Q0=0', 'Q1=1']
+  LOG: Doing instruction cnot with operands ['Q0=1', 'Q1=0']
   OPR:
-  - Q0=0
-  - Q1=1
+  - Q0=1
+  - Q1=0
   OUT: null
-  PRC: 33
+  PRC: 54
   QGR:
-    8789738900980:
+    8753673389556:
       is_entangled: true
       qubit_ids:
       - - receiver
+        - 0
+      - - receiver2
         - 0
       - - sender
         - 0
@@ -49,29 +23,31 @@
         - 1
       state: null
   QID:
-  - 0
   - 1
+  - 0
   SID: 0
-  SIT: 643072.0
+  SIT: 1282947.0
   VID:
-  - 0
   - 1
-  WCT: '2022-12-01 17:11:32.264911'
+  - 0
+  WCT: '2022-12-01 17:49:26.540706'
 - AID: 0
   ANG: null
   HFL: null
   HLN: null
   INS: h
-  LOG: Doing instruction h with operands ['Q0=0']
+  LOG: Doing instruction h with operands ['Q0=1']
   OPR:
-  - Q0=0
+  - Q0=1
   OUT: null
-  PRC: 35
+  PRC: 56
   QGR:
-    8789738900980:
+    8753673389556:
       is_entangled: true
       qubit_ids:
       - - receiver
+        - 0
+      - - receiver2
         - 0
       - - sender
         - 0
@@ -79,12 +55,41 @@
         - 1
       state: null
   QID:
-  - 0
+  - 1
   SID: 0
-  SIT: 644072.0
+  SIT: 1283947.0
   VID:
-  - 0
-  WCT: '2022-12-01 17:11:32.266597'
+  - 1
+  WCT: '2022-12-01 17:49:26.542128'
+- AID: 0
+  ANG: null
+  HFL: null
+  HLN: null
+  INS: meas
+  LOG: Doing instruction meas with operands ['Q0=1', 'M0=0']
+  OPR:
+  - Q0=1
+  - M0=0
+  OUT: 0
+  PRC: 58
+  QGR:
+    8753673389556:
+      is_entangled: true
+      qubit_ids:
+      - - receiver
+        - 0
+      - - receiver2
+        - 0
+      - - sender
+        - 0
+      state: null
+  QID:
+  - 1
+  SID: 0
+  SIT: 1283947.0
+  VID:
+  - 1
+  WCT: '2022-12-01 17:49:26.590597'
 - AID: 0
   ANG: null
   HFL: null
@@ -95,49 +100,20 @@
   - Q0=0
   - M0=0
   OUT: 0
-  PRC: 37
+  PRC: 63
   QGR:
-    8789738900980:
+    8753673389556:
       is_entangled: true
       qubit_ids:
       - - receiver
         - 0
-      - - sender
-        - 1
+      - - receiver2
+        - 0
       state: null
   QID:
   - 0
   SID: 0
-  SIT: 644072.0
+  SIT: 1283947.0
   VID:
   - 0
-  WCT: '2022-12-01 17:11:32.281078'
-- AID: 0
-  ANG: null
-  HFL: null
-  HLN: null
-  INS: meas
-  LOG: Doing instruction meas with operands ['Q0=1', 'M0=1']
-  OPR:
-  - Q0=1
-  - M0=1
-  OUT: 1
-  PRC: 42
-  QGR:
-    8789738900980:
-      is_entangled: false
-      qubit_ids:
-      - - receiver
-        - 0
-      state:
-      - - !!python/complex 0.0
-        - !!python/complex 0.0
-      - - !!python/complex 0.0
-        - !!python/complex 1.0
-  QID:
-  - 1
-  SID: 0
-  SIT: 644072.0
-  VID:
-  - 1
-  WCT: '2022-12-01 17:11:32.282431'
+  WCT: '2022-12-01 17:49:26.610876'

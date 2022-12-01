@@ -1,8 +1,12 @@
 - HFL: null
   HLN: null
-  LOG: m1 = 0
-  WCT: '2022-12-01 17:11:32.562464'
+  LOG: sender main() called
+  WCT: '2022-12-01 17:49:25.980401'
 - HFL: null
   HLN: null
-  LOG: m2 = 1
-  WCT: '2022-12-01 17:11:32.562608'
+  LOG: m1 = 0
+  WCT: '2022-12-01 17:49:26.921576'
+- HFL: null
+  HLN: null
+  LOG: m2 = 0
+  WCT: '2022-12-01 17:49:26.921641'
