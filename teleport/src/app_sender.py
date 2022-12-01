@@ -6,12 +6,15 @@ from netqasm.sdk.classical_communication.message import StructuredMessage
 from netqasm.sdk.external import NetQASMConnection, Socket
 from netqasm.sdk.toolbox import set_qubit_state
 
+#**************************POKE**************************
+#********************************************************
 
 def main(app_config=None, phi=0.0, theta=0.0):
     phi *= math.pi
     theta *= math.pi
 
     log_config = app_config.log_config
+
     app_logger = get_new_app_logger(app_name="sender", log_config=log_config)
 
     # Create a socket to send classical information

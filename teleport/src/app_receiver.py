@@ -1,3 +1,7 @@
+#**************************POKE**************************
+from netqasm.logging.output import get_new_app_logger
+#********************************************************
+
 from netqasm.sdk import EPRSocket
 from netqasm.sdk.external import NetQASMConnection, Socket, get_qubit_state
 from netqasm.sdk.toolbox.sim_states import get_fidelity, qubit_from, to_dm
@@ -5,6 +9,10 @@ from netqasm.sdk.toolbox.sim_states import get_fidelity, qubit_from, to_dm
 
 def main(app_config=None):
     log_config = app_config.log_config
+
+    #**************************POKE**************************
+    app_logger = get_new_app_logger(app_name="receiver", log_config=log_config)
+    #********************************************************
 
     # Create a socket to recv classical information
     socket = Socket("receiver", "sender", log_config=log_config)
@@ -45,6 +53,8 @@ def main(app_config=None):
         original = qubit_from(phi, theta)
         original_dm = to_dm(original)
         fidelity = get_fidelity(original, dm)
+
+        app_logger.log(f'--> type(dm): {type(dm)}')
 
         return {
             "original_state": original_dm.tolist(),
