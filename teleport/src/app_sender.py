@@ -10,8 +10,6 @@ from netqasm.sdk.toolbox import set_qubit_state
 #********************************************************
 
 def main(app_config=None, phi=0.0, theta=0.0):
-    phi *= math.pi
-    theta *= math.pi
 
     log_config = app_config.log_config
 
@@ -30,34 +28,27 @@ def main(app_config=None, phi=0.0, theta=0.0):
         app_name=app_config.app_name, log_config=log_config, epr_sockets=[epr_socket]
     )
     with sender:
-        # Create a qubit to teleport
-        q = Qubit(sender)
-        set_qubit_state(q, phi, theta)
-
         # Create EPR pairs
         epr = epr_socket.create()[0]
 
-        # Teleport
-        q.cnot(epr)
-        q.H()
-        m1 = q.measure()
-        m2 = epr.measure()
+        #Measure EPR state
+        m1_alice = epr.measure()
 
     # Send the correction information
-    m1, m2 = int(m1), int(m2)
+    m1_alice= int(m1_alice)
 
-    app_logger.log(f"m1 = {m1}")
-    app_logger.log(f"m2 = {m2}")
+    app_logger.log(f"mock_m1 = {m1_alice}")
     print(
-        f"`sender` measured the following teleportation corrections: m1 = {m1}, m2 = {m2}"
+        f"`sender` measured the following teleportation corrections: m1_alice = {m1_alice}"
     )
     print("`sender` will send the corrections to `receiver`")
 
-    socket.send_structured(StructuredMessage("Corrections", (m1, m2)))
+    m2 = 0
+    socket.send_structured(StructuredMessage("Corrections", (m1_alice, m2)))
 
     socket.send_silent(str((phi, theta)))
 
-    return {"m1": m1, "m2": m2}
+    return {"m1_alice": m1_alice, "m2": m2}
 
 
 if __name__ == "__main__":

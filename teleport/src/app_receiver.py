@@ -28,15 +28,18 @@ def main(app_config=None):
         epr = epr_socket.recv()[0]
         receiver.flush()
 
+        x = epr.measure(inplace = True)
+        x = 0
+
         # Get the corrections
         m1, m2 = socket.recv_structured().payload
-        print(f"`receiver` got corrections: {m1}, {m2}")
-        if m2 == 1:
-            print("`receiver` will perform X correction")
-            epr.X()
-        if m1 == 1:
-            print("`receiver` will perform Z correction")
-            epr.Z()
+        # print(f"`receiver` got corrections: {m1}, {m2}")
+        # if m2 == 1:
+        #     print("`receiver` will perform X correction")
+        #     epr.X()
+        # if m1 == 1:
+        #     print("`receiver` will perform Z correction")
+        #     epr.Z()
 
         receiver.flush()
         # Get the qubit state
@@ -56,13 +59,16 @@ def main(app_config=None):
 
         app_logger.log(f'--> type(dm): {type(dm)}')
 
-        return {
-            "original_state": original_dm.tolist(),
-            "correction1": "Z" if m1 == 1 else "None",
-            "correction2": "X" if m2 == 1 else "None",
-            "received_state": dm.tolist(),
-            "fidelity": fidelity,
-        }
+        return {"x": x}
+
+        # return {
+        #     "original_state": original_dm.tolist(),
+        #     "correction1": "Z" if m1 == 1 else "None",
+        #     "correction2": "X" if m2 == 1 else "None",
+        #     "received_state": dm.tolist(),
+        #     "fidelity": fidelity,
+        #     "x": x
+        # }
 
 
 if __name__ == "__main__":
