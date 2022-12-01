@@ -1,5 +1,5 @@
 - app_receiver:
-    x: 0
+    m1_alice: 1
+    m1_bob: 1
   app_sender:
     m1_alice: 1
-    m2: 0

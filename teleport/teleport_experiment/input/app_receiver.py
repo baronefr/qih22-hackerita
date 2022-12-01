@@ -28,47 +28,16 @@ def main(app_config=None):
         epr = epr_socket.recv()[0]
         receiver.flush()
 
-        x = epr.measure(inplace = True)
-        x = 0
+        #Measure EPR state
+        m1_bob = epr.measure(inplace = True)
+        app_logger.log(f'--> m1_bob: {type(m1_bob)}')
 
-        # Get the corrections
-        m1, m2 = socket.recv_structured().payload
-        # print(f"`receiver` got corrections: {m1}, {m2}")
-        # if m2 == 1:
-        #     print("`receiver` will perform X correction")
-        #     epr.X()
-        # if m1 == 1:
-        #     print("`receiver` will perform Z correction")
-        #     epr.Z()
+        # Get the measurements
+        m1_alice = socket.recv_structured().payload
 
         receiver.flush()
-        # Get the qubit state
-        # NOTE only possible in simulation, not part of actual application
-        dm = get_qubit_state(epr)
-        print(f"`receiver` recieved the teleported state {dm}")
 
-        # Reconstruct the original qubit to compare with the received one
-        # NOTE only to check simulation results, normally the Sender does not
-        # need to send the phi and theta values!
-        msg = socket.recv_silent()  # don't log this
-        phi, theta = eval(msg)
-
-        original = qubit_from(phi, theta)
-        original_dm = to_dm(original)
-        fidelity = get_fidelity(original, dm)
-
-        app_logger.log(f'--> type(dm): {type(dm)}')
-
-        return {"x": x}
-
-        # return {
-        #     "original_state": original_dm.tolist(),
-        #     "correction1": "Z" if m1 == 1 else "None",
-        #     "correction2": "X" if m2 == 1 else "None",
-        #     "received_state": dm.tolist(),
-        #     "fidelity": fidelity,
-        #     "x": x
-        # }
+        return {"m1_alice": m1_alice, "m1_bob": int(str(m1_bob))}
 
 
 if __name__ == "__main__":

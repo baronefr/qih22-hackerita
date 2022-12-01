@@ -1,4 +1,4 @@
 - HFL: null
   HLN: null
-  LOG: '--> type(dm): <class ''numpy.ndarray''>'
-  WCT: '2022-12-01 17:08:15.999150'
+  LOG: '--> m1_bob: <class ''netqasm.sdk.futures.Future''>'
+  WCT: '2022-12-01 17:21:02.940744'

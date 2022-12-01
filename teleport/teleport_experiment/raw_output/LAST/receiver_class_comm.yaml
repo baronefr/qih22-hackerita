@@ -1,19 +1,18 @@
 - HFL: /home/cthulhu/Documents/QH2022/qih22-hackerita/teleport/teleport_experiment/input/app_receiver.py
-  HLN: 35
+  HLN: 36
   INS: WAIT_RECV
   LOG: Waiting for a classical message from sender...
   MSG: null
   REC: receiver
   SEN: sender
   SOD: 0
-  WCT: '2022-12-01 17:08:15.867326'
+  WCT: '2022-12-01 17:21:02.940793'
 - HFL: /home/cthulhu/Documents/QH2022/qih22-hackerita/teleport/teleport_experiment/input/app_receiver.py
-  HLN: 35
+  HLN: 36
   INS: RECV
-  LOG: 'Message received from sender: StructuredMessage(header=''Corrections'', payload=[1,
-    0])'
-  MSG: 'Corrections: [1, 0]'
+  LOG: 'Message received from sender: StructuredMessage(header=''Corrections'', payload=1)'
+  MSG: 'Corrections: 1'
   REC: receiver
   SEN: sender
   SOD: 0
-  WCT: '2022-12-01 17:08:15.980610'
+  WCT: '2022-12-01 17:21:03.054659'

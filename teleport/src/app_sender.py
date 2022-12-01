@@ -37,18 +37,17 @@ def main(app_config=None, phi=0.0, theta=0.0):
     # Send the correction information
     m1_alice= int(m1_alice)
 
-    app_logger.log(f"mock_m1 = {m1_alice}")
+    app_logger.log(f"m1_alice = {m1_alice}")
     print(
         f"`sender` measured the following teleportation corrections: m1_alice = {m1_alice}"
     )
     print("`sender` will send the corrections to `receiver`")
 
-    m2 = 0
-    socket.send_structured(StructuredMessage("Corrections", (m1_alice, m2)))
+    socket.send_structured(StructuredMessage("Corrections", (m1_alice)))
 
-    socket.send_silent(str((phi, theta)))
+    # socket.send_silent(str((phi, theta)))
 
-    return {"m1_alice": m1_alice, "m2": m2}
+    return {"m1_alice": m1_alice}
 
 
 if __name__ == "__main__":

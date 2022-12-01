@@ -5,11 +5,11 @@
     "round_result": [
       {
         "app_receiver": {
-          "x": 0
+          "m1_alice": 1,
+          "m1_bob": 1
         },
         "app_sender": {
-          "m1_alice": 1,
-          "m2": 0
+          "m1_alice": 1
         }
       }
     ],
@@ -45,7 +45,7 @@
           "amsterdam-leiden"
         ],
         "groups": {
-          "8750308358323": {
+          "8751721955818": {
             "qubits": [
               {
                 "node": "receiver",
@@ -63,25 +63,25 @@
       },
       {
         "command": "user-message",
-        "message": "mock_m1 = 1",
+        "message": "--> m1_bob: <class 'netqasm.sdk.futures.Future'>",
+        "from": {
+          "node": "receiver"
+        }
+      },
+      {
+        "command": "user-message",
+        "message": "m1_alice = 1",
         "from": {
           "node": "sender"
         }
       },
       {
         "command": "classical-message",
-        "message": "Corrections: (1, 0)",
+        "message": "Corrections: 1",
         "from": {
           "node": "sender"
         },
         "to": {
-          "node": "receiver"
-        }
-      },
-      {
-        "command": "user-message",
-        "message": "--> type(dm): <class 'numpy.ndarray'>",
-        "from": {
           "node": "receiver"
         }
       },
