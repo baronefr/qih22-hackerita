@@ -1,0 +1,5 @@
+- app_receiver:
+    x: 0
+  app_sender:
+    m1_alice: 1
+    m2: 0
