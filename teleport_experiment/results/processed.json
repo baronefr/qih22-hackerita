@@ -6,7 +6,7 @@
       {
         "app_receiver": {
           "correction1": "None",
-          "correction2": "None",
+          "correction2": "X",
           "fidelity": 1.0,
           "original_state": [
             [
@@ -53,9 +53,10 @@
             ]
           ]
         },
+        "app_receiver2": null,
         "app_sender": {
           "m1": 0,
-          "m2": 0
+          "m2": 1
         }
       }
     ],
@@ -75,7 +76,7 @@
           "amsterdam-leiden"
         ],
         "groups": {
-          "8735074674084": {
+          "8789738900980": {
             "qubits": [
               {
                 "node": "sender",
@@ -123,21 +124,7 @@
           "amsterdam-leiden"
         ],
         "groups": {
-          "8735074643409": {
-            "qubits": [
-              {
-                "node": "receiver",
-                "id": 0
-              },
-              {
-                "node": "sender",
-                "id": 1
-              }
-            ],
-            "is_entangled": true,
-            "state": null
-          },
-          "8735074674084": {
+          "8789738900980": {
             "qubits": [
               {
                 "node": "sender",
@@ -167,6 +154,20 @@
                 }
               ]
             ]
+          },
+          "8789738905624": {
+            "qubits": [
+              {
+                "node": "receiver",
+                "id": 0
+              },
+              {
+                "node": "sender",
+                "id": 1
+              }
+            ],
+            "is_entangled": true,
+            "state": null
           }
         }
       },
@@ -179,14 +180,14 @@
       },
       {
         "command": "user-message",
-        "message": "m2 = 0",
+        "message": "m2 = 1",
         "from": {
           "node": "sender"
         }
       },
       {
         "command": "classical-message",
-        "message": "Corrections: (0, 0)",
+        "message": "Corrections: (0, 1)",
         "from": {
           "node": "sender"
         },

@@ -576,7 +576,8 @@
       ],
       "roles": {
         "Sender": "amsterdam",
-        "Receiver": "leiden"
+        "Receiver": "leiden",
+        "Receiver2": "the-hague"
       }
     },
     "application": [

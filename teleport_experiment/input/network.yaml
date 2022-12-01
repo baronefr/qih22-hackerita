@@ -4,6 +4,16 @@ links:
   node_name1: amsterdam
   node_name2: leiden
   noise_type: Depolarise
+- fidelity: 1.0
+  name: amsterdam-the-hague
+  node_name1: amsterdam
+  node_name2: the-hague
+  noise_type: Depolarise
+- fidelity: 1.0
+  name: leiden-the-hague
+  node_name1: leiden
+  node_name2: the-hague
+  noise_type: Depolarise
 nodes:
 - gate_fidelity: 1.0
   name: amsterdam
@@ -19,6 +29,18 @@ nodes:
     t2: 0
 - gate_fidelity: 1.0
   name: leiden
+  qubits:
+  - id: 0
+    t1: 0
+    t2: 0
+  - id: 1
+    t1: 0
+    t2: 0
+  - id: 2
+    t1: 0
+    t2: 0
+- gate_fidelity: 1.0
+  name: the-hague
   qubits:
   - id: 0
     t1: 0

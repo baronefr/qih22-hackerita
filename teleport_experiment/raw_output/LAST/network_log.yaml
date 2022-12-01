@@ -8,7 +8,7 @@
   PTH:
   - amsterdam-leiden
   QGR:
-    8735074674084:
+    8789738900980:
       is_entangled: false
       qubit_ids:
       - - sender
@@ -21,9 +21,9 @@
   QID:
   - 1
   - 0
-  SIT: 125555.0
+  SIT: 141072.0
   TYP: null
-  WCT: '2022-12-01 11:42:51.152870'
+  WCT: '2022-12-01 17:11:32.243159'
 - BAS: null
   INS: epr_EntanglementStage.FINISH
   LOG: entanglement of type 0 created between amsterdam and leiden
@@ -34,15 +34,7 @@
   PTH:
   - amsterdam-leiden
   QGR:
-    8735074643409:
-      is_entangled: true
-      qubit_ids:
-      - - receiver
-        - 0
-      - - sender
-        - 1
-      state: null
-    8735074674084:
+    8789738900980:
       is_entangled: false
       qubit_ids:
       - - sender
@@ -52,9 +44,17 @@
         - !!python/complex 0.0
       - - !!python/complex 0.0
         - !!python/complex 0.0
+    8789738905624:
+      is_entangled: true
+      qubit_ids:
+      - - receiver
+        - 0
+      - - sender
+        - 1
+      state: null
   QID:
   - 1
   - 0
-  SIT: 126555.0
+  SIT: 142072.0
   TYP: epr_EntanglementType.CK
-  WCT: '2022-12-01 11:42:51.187030'
+  WCT: '2022-12-01 17:11:32.260699'

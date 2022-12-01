@@ -6,6 +6,7 @@
   ],
   "roles": [
     "Sender",
-    "Receiver"
+    "Receiver",
+    "Receiver2"
   ]
 }

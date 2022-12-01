@@ -54,6 +54,49 @@ def main(app_config=None, phi=0.0, theta=0.0):
 
     socket.send_silent(str((phi, theta)))
 
+    #------------------------------------ Repeat with receiver 2
+    if(False):
+        # Create a socket to send classical information
+        socket = socket2("sender", "receiver2", log_config=log_config)
+
+        # Create a EPR socket for entanglement generation
+        epr_socket2 = EPRSocket("receiver2")
+
+        print("`sender` will start to teleport a qubit to `receiver2`")
+
+        # Initialize the connection to the backend
+        sender2 = NetQASMConnection(
+            app_name=app_config.app_name, log_config=log_config, epr_sockets=[epr_socket2]
+        )
+        
+        with sender2:
+            # Create a qubit to teleport
+            q2 = Qubit(sender2)
+            set_qubit_state(q2, phi, theta)
+
+            # Create EPR pairs
+            epr2 = epr_socket2.create()[0]
+
+            # Teleport
+            q2.cnot(epr2)
+            q2.H()
+            m1 = q2.measure()
+            m2 = epr2.measure()
+
+        # Send the correction information
+        m1, m2 = int(m1), int(m2)
+
+        app_logger.log(f"m1 = {m1}")
+        app_logger.log(f"m2 = {m2}")
+        print(
+            f"`sender` measured the following teleportation corrections: m1 = {m1}, m2 = {m2}"
+        )
+        print("`sender` will send the corrections to `receiver2`")
+
+        socket2.send_structured(StructuredMessage("Corrections", (m1, m2)))
+
+        socket2.send_silent(str((phi, theta)))
+
     return {"m1": m1, "m2": m2}
 
 

@@ -9,7 +9,7 @@
   OUT: null
   PRC: 21
   QGR:
-    8735074674084:
+    8789738900980:
       is_entangled: false
       qubit_ids:
       - - sender
@@ -22,10 +22,10 @@
   QID:
   - 0
   SID: 0
-  SIT: 125555.0
+  SIT: 141072.0
   VID:
   - 0
-  WCT: '2022-12-01 11:42:51.152497'
+  WCT: '2022-12-01 17:11:32.242417'
 - AID: 0
   ANG: null
   HFL: null
@@ -38,7 +38,7 @@
   OUT: null
   PRC: 33
   QGR:
-    8735074674084:
+    8789738900980:
       is_entangled: true
       qubit_ids:
       - - receiver
@@ -52,11 +52,11 @@
   - 0
   - 1
   SID: 0
-  SIT: 627555.0
+  SIT: 643072.0
   VID:
   - 0
   - 1
-  WCT: '2022-12-01 11:42:51.251182'
+  WCT: '2022-12-01 17:11:32.264911'
 - AID: 0
   ANG: null
   HFL: null
@@ -68,7 +68,7 @@
   OUT: null
   PRC: 35
   QGR:
-    8735074674084:
+    8789738900980:
       is_entangled: true
       qubit_ids:
       - - receiver
@@ -81,10 +81,10 @@
   QID:
   - 0
   SID: 0
-  SIT: 628555.0
+  SIT: 644072.0
   VID:
   - 0
-  WCT: '2022-12-01 11:42:51.253356'
+  WCT: '2022-12-01 17:11:32.266597'
 - AID: 0
   ANG: null
   HFL: null
@@ -97,7 +97,7 @@
   OUT: 0
   PRC: 37
   QGR:
-    8735074674084:
+    8789738900980:
       is_entangled: true
       qubit_ids:
       - - receiver
@@ -108,36 +108,36 @@
   QID:
   - 0
   SID: 0
-  SIT: 628555.0
+  SIT: 644072.0
   VID:
   - 0
-  WCT: '2022-12-01 11:42:51.283000'
+  WCT: '2022-12-01 17:11:32.281078'
 - AID: 0
   ANG: null
   HFL: null
   HLN: null
   INS: meas
-  LOG: Doing instruction meas with operands ['Q0=1', 'M0=0']
+  LOG: Doing instruction meas with operands ['Q0=1', 'M0=1']
   OPR:
   - Q0=1
-  - M0=0
-  OUT: 0
+  - M0=1
+  OUT: 1
   PRC: 42
   QGR:
-    8735074674084:
+    8789738900980:
       is_entangled: false
       qubit_ids:
       - - receiver
         - 0
       state:
-      - - !!python/complex 1.0
-        - !!python/complex 0.0
       - - !!python/complex 0.0
         - !!python/complex 0.0
+      - - !!python/complex 0.0
+        - !!python/complex 1.0
   QID:
   - 1
   SID: 0
-  SIT: 628555.0
+  SIT: 644072.0
   VID:
   - 1
-  WCT: '2022-12-01 11:42:51.283905'
+  WCT: '2022-12-01 17:11:32.282431'
