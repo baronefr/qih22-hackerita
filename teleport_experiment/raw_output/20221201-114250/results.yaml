@@ -1,0 +1,17 @@
+- app_receiver:
+    correction1: None
+    correction2: None
+    fidelity: 1.0
+    original_state:
+    - - !!python/complex 1.0
+      - !!python/complex 0.0
+    - - !!python/complex 0.0
+      - !!python/complex 0.0
+    received_state:
+    - - !!python/complex 1.0
+      - !!python/complex 0.0
+    - - !!python/complex 0.0
+      - !!python/complex 0.0
+  app_sender:
+    m1: 0
+    m2: 0
