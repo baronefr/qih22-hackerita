@@ -6,12 +6,13 @@ from netqasm.sdk.classical_communication.message import StructuredMessage
 from netqasm.sdk.external import NetQASMConnection, Socket
 from netqasm.sdk.toolbox import set_qubit_state
 
+#**************************POKE**************************
+#********************************************************
 
 def main(app_config=None, phi=0.0, theta=0.0):
-    phi *= math.pi
-    theta *= math.pi
 
     log_config = app_config.log_config
+
     app_logger = get_new_app_logger(app_name="sender", log_config=log_config)
 
     # Create a socket to send classical information
@@ -27,34 +28,24 @@ def main(app_config=None, phi=0.0, theta=0.0):
         app_name=app_config.app_name, log_config=log_config, epr_sockets=[epr_socket]
     )
     with sender:
-        # Create a qubit to teleport
-        q = Qubit(sender)
-        set_qubit_state(q, phi, theta)
+        m_alice_list = []
+        for i in range(100):
+            epr = epr_socket.create_keep()[0]
 
-        # Create EPR pairs
-        epr = epr_socket.create()[0]
+            m_alice = epr.measure()
+            sender.flush()
 
-        # Teleport
-        q.cnot(epr)
-        q.H()
-        m1 = q.measure()
-        m2 = epr.measure()
+            m_alice_list.append(int(m_alice))
 
-    # Send the correction information
-    m1, m2 = int(m1), int(m2)
+        # print(f'--> m_alice_list: {m_alice_list}')
 
-    app_logger.log(f"m1 = {m1}")
-    app_logger.log(f"m2 = {m2}")
-    print(
-        f"`sender` measured the following teleportation corrections: m1 = {m1}, m2 = {m2}"
-    )
+    app_logger.log(f"m_alice_list: {m_alice_list}")
+    print(f"`sender` measured the following (m_alice_list): {m_alice_list}")
+
     print("`sender` will send the corrections to `receiver`")
+    socket.send_structured(StructuredMessage("Corrections", (m_alice_list)))
 
-    socket.send_structured(StructuredMessage("Corrections", (m1, m2)))
-
-    socket.send_silent(str((phi, theta)))
-
-    return {"m1": m1, "m2": m2}
+    return {"m_alice_list": m_alice_list}
 
 
 if __name__ == "__main__":

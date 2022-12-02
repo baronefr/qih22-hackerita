@@ -1,0 +1,9 @@
+- HFL: /home/cthulhu/Documents/QH2022/qih22-hackerita/teleport/teleport_experiment/input/app_sender.py
+  HLN: 46
+  INS: SEND
+  LOG: 'Send classical message to receiver: {"header": "Corrections", "payload": 1}'
+  MSG: 'Corrections: 1'
+  REC: receiver
+  SEN: sender
+  SOD: 0
+  WCT: '2022-12-01 17:21:02.992758'
