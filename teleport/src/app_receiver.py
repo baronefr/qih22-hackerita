@@ -25,19 +25,27 @@ def main(app_config=None):
         app_name=app_config.app_name, log_config=log_config, epr_sockets=[epr_socket]
     )
     with receiver:
-        epr = epr_socket.recv()[0]
-        receiver.flush()
+        num_exp_run = 100
+        m_bob_list = []
+        for i in range(num_exp_run):
+            epr = epr_socket.recv_keep()[0]
 
-        #Measure EPR state
-        m1_bob = epr.measure(inplace = True)
-        app_logger.log(f'--> m1_bob: {type(m1_bob)}')
+            m_bob = epr.measure(inplace = False)
+            receiver.flush()
 
-        # Get the measurements
-        m1_alice = socket.recv_structured().payload
+            m_bob_list.append(int(m_bob))
 
-        receiver.flush()
+        # print(f'--> m_bob_list: {m_bob_list}')
 
-        return {"m1_alice": m1_alice, "m1_bob": int(str(m1_bob))}
+        app_logger.log(f'm_bob_list: {m_bob_list}')
+        print(f'sender measured the following (m_bob_list): {m_bob_list}')
+
+        # Get sender the measurements
+        m_alice_list = socket.recv_structured().payload
+        print(f'classical receiver measures m_alice_list: {m_alice_list}')
+
+    return {"m_alice_list": m_alice_list, \
+             "m_bob_list": m_bob_list}
 
 
 if __name__ == "__main__":

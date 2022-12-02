@@ -28,26 +28,24 @@ def main(app_config=None, phi=0.0, theta=0.0):
         app_name=app_config.app_name, log_config=log_config, epr_sockets=[epr_socket]
     )
     with sender:
-        # Create EPR pairs
-        epr = epr_socket.create()[0]
+        m_alice_list = []
+        for i in range(100):
+            epr = epr_socket.create_keep()[0]
 
-        #Measure EPR state
-        m1_alice = epr.measure()
+            m_alice = epr.measure()
+            sender.flush()
 
-    # Send the correction information
-    m1_alice= int(m1_alice)
+            m_alice_list.append(int(m_alice))
 
-    app_logger.log(f"m1_alice = {m1_alice}")
-    print(
-        f"`sender` measured the following teleportation corrections: m1_alice = {m1_alice}"
-    )
+        # print(f'--> m_alice_list: {m_alice_list}')
+
+    app_logger.log(f"m_alice_list: {m_alice_list}")
+    print(f"`sender` measured the following (m_alice_list): {m_alice_list}")
+
     print("`sender` will send the corrections to `receiver`")
+    socket.send_structured(StructuredMessage("Corrections", (m_alice_list)))
 
-    socket.send_structured(StructuredMessage("Corrections", (m1_alice)))
-
-    # socket.send_silent(str((phi, theta)))
-
-    return {"m1_alice": m1_alice}
+    return {"m_alice_list": m_alice_list}
 
 
 if __name__ == "__main__":
