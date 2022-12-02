@@ -30,7 +30,7 @@ def main(app_config=None):
     epr_socket = EPRSocket("sender")
 
     # Initialize the connection
-    receiver = NetQASMConnection(app_name=app_config.app_name, log_config=log_config, epr_sockets=[epr_socket])
+    receiver = NetQASMConnection(app_name=app_config.app_name, log_config=log_config, epr_sockets=[epr_socket], min_fidelity=int(78))
 
     with receiver:
         num_exp_run = 1000

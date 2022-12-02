@@ -33,7 +33,7 @@ def main(app_config=None, phi=0.0, theta=0.0):
     print("`sender` will start to teleport a qubit to `receiver`")
 
     # Initialize the connection to the backend
-    sender = NetQASMConnection(app_name=app_config.app_name, log_config=log_config, epr_sockets=[epr_socket])
+    sender = NetQASMConnection(app_name=app_config.app_name, log_config=log_config, epr_sockets=[epr_socket], min_fidelity=int(78))
 
     with sender:
         num_exp_run = 1000
@@ -64,8 +64,6 @@ def main(app_config=None, phi=0.0, theta=0.0):
     print(f"`sender` measured the following (m_alice_list): {m_alice_list}")
 
     print("`sender` will send the corrections to `receiver`")
-    # socket.send_structured(StructuredMessage("Corrections", (m_alice_list)))
-    
     tmp_msg = msg_pack(m_alice_list)
     socket.send(tmp_msg)
 
