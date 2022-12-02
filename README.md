@@ -5,9 +5,9 @@ Hello, we are team #hackerita (a mix of *hack*thon and margh*erita* pizza), from
 This repo contains our code developed for QIH 2022.
 ```
 
-<center>
-<img src='img/hackathon_2022_cover.jpg' width=500>
-</center>
+<p align="center" width="100%">
+<img src='img/hackathon_2022_cover.jpg' width="80%">
+</p>
 
 <br>
 
@@ -30,20 +30,20 @@ Even though this setup is utterly simple, it has been useful to take confidence 
 
 Taking inspiration from the step 1 code, we implemented the **BBM92 protocol**. We associate an entangled source to Alice, which will send the (second) entangled qubit to Bob through a quantum channel.
 
-<center>
-<img src='img/BBM92_network.png' width=400>
-</center>
+<p align="center" width="100%">
+<img src='img/BBM92_network.png' width="50%">
+</p>
 
 <br>
 
 However, we can change the network layout, so to include an eavesdropper in the quantum channel:
 
-<center>
-<img src='img/BBM92_network_eve.png' width=400>
-</center>
+<p align="center" width="100%">
+<img src='img/BBM92_network_eve.png' width="50%">
+</p>
 
 Either way, Alice and Bob perform measure in randomly choosen basis, storing the measure basis and the outcome. Eve works likewise, with an additional step to send an hijacked qubit to Bob, depending on the outcome of Eve's measure. Finally, sifting is performed sharing on the classical channel the chosen basis.
 
-<center>
-<img src='img/BBM92_protocol.png' width=400>
-</center>
+<p align="center" width="100%">
+<img src='img/BBM92_protocol.png' width="50%">
+</p>
