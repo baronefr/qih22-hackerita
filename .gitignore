@@ -1,1 +1,9 @@
+# private directory
+dev/
+
+# fix the experiment setup
 teleport_experiment
+
+# remove tmps
+**/__pycache__/**
+teleport/log/**
