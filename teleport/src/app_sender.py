@@ -36,23 +36,34 @@ def main(app_config=None, phi=0.0, theta=0.0):
     sender = NetQASMConnection(app_name=app_config.app_name, log_config=log_config, epr_sockets=[epr_socket], min_fidelity=int(78))
 
     with sender:
-        num_exp_run = 1000
+        num_exp_run = 100
+
+        epr_rnd_choice = 0 #0 attack, 1 entangled
 
         rnd_base_choice_arr = np.random.randint(0, 2, num_exp_run)
 
         m_alice_list = []
         basis_alice_list = []
         for i, rnd_base_choice in zip(range(num_exp_run), rnd_base_choice_arr):
-            epr = epr_socket.create_keep()[0]
+            # epr = epr_socket.create_keep()[0]
+
+            if epr_rnd_choice == 0:
+                epr = Qubit(sender)
+                set_qubit_state(epr, 0.0, 0.0)
+                sender.flush()
+            if epr_rnd_choice == 1:
+                epr = epr_socket.create_keep()[0]
+                sender.flush()
 
             if rnd_base_choice == 0:
                 basis_alice_list.append('+')
                 m_alice = epr.measure()
+                sender.flush()
             if rnd_base_choice == 1:
                 basis_alice_list.append('x')
                 epr.H()
                 m_alice = epr.measure()
-            sender.flush()
+                sender.flush()
 
             # m_alice_list.append((m_alice[0], int(m_alice[1])))
             m_alice_list.append(int(m_alice))
